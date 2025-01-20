@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module world</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">world</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Clenovo%5Cpycharmprojects%5Creformated%2030.12%5Cworld.py">c:\users\lenovo\pycharmprojects\reformated 30.12\world.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="const.html">const</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="random.html">random</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="world.html#World">World</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="World">class <strong>World</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#World">World</a>(world_data,&nbsp;map_image)<br>
+&nbsp;<br>
+Represents&nbsp;the&nbsp;game&nbsp;world,&nbsp;including&nbsp;the&nbsp;tile&nbsp;map,&nbsp;waypoints,&nbsp;and&nbsp;enemies.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level&nbsp;(int):&nbsp;Current&nbsp;level&nbsp;of&nbsp;the&nbsp;game.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;health&nbsp;(int):&nbsp;Player's&nbsp;health&nbsp;points.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;money&nbsp;(int):&nbsp;Player's&nbsp;money.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tile_map&nbsp;(list):&nbsp;List&nbsp;of&nbsp;tile&nbsp;data&nbsp;for&nbsp;the&nbsp;map&nbsp;background.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;waypoints&nbsp;(list):&nbsp;List&nbsp;of&nbsp;waypoints&nbsp;(coordinates)&nbsp;for&nbsp;enemy&nbsp;paths.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level_data&nbsp;(dict):&nbsp;Data&nbsp;for&nbsp;the&nbsp;current&nbsp;level,&nbsp;typically&nbsp;loaded&nbsp;from&nbsp;a&nbsp;Tiled&nbsp;.tmj&nbsp;file.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image&nbsp;(pygame.Surface):&nbsp;Image&nbsp;of&nbsp;the&nbsp;map&nbsp;background.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;enemy_list&nbsp;(list):&nbsp;List&nbsp;of&nbsp;enemies&nbsp;to&nbsp;spawn&nbsp;for&nbsp;the&nbsp;current&nbsp;wave.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;spawned_enemies&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;enemies&nbsp;that&nbsp;have&nbsp;been&nbsp;spawned.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;killed_enemies&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;enemies&nbsp;that&nbsp;have&nbsp;been&nbsp;killed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;missed_enemies&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;enemies&nbsp;that&nbsp;reached&nbsp;the&nbsp;end&nbsp;without&nbsp;being&nbsp;killed.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#World-__init__">__init__</a>(world_data,&nbsp;map_image):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes&nbsp;the&nbsp;game&nbsp;world&nbsp;with&nbsp;level&nbsp;data&nbsp;and&nbsp;map&nbsp;image.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#World-process_data">process_data</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Processes&nbsp;the&nbsp;level&nbsp;data&nbsp;to&nbsp;extract&nbsp;tile&nbsp;map&nbsp;and&nbsp;waypoints.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#World-process_waypoints">process_waypoints</a>(data):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Extracts&nbsp;individual&nbsp;sets&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;coordinates&nbsp;from&nbsp;waypoint&nbsp;data.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#World-process_enemies">process_enemies</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Populates&nbsp;the&nbsp;enemy&nbsp;list&nbsp;with&nbsp;enemies&nbsp;to&nbsp;spawn&nbsp;in&nbsp;the&nbsp;current&nbsp;wave.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#World-draw">draw</a>(surface):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Draws&nbsp;the&nbsp;map&nbsp;image&nbsp;onto&nbsp;the&nbsp;given&nbsp;surface.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#World-is_wave_completed">is_wave_completed</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks&nbsp;if&nbsp;the&nbsp;wave&nbsp;is&nbsp;completed&nbsp;by&nbsp;comparing&nbsp;the&nbsp;number&nbsp;of&nbsp;killed+missed&nbsp;enemies&nbsp;to&nbsp;the&nbsp;total&nbsp;amount.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#World-reset_values">reset_values</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resets&nbsp;values&nbsp;for&nbsp;a&nbsp;new&nbsp;wave,&nbsp;including&nbsp;enemy&nbsp;lists&nbsp;and&nbsp;counters.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="World-__init__"><strong>__init__</strong></a>(self, world_data, map_image)</dt><dd><span class="code">Initializes&nbsp;the&nbsp;game&nbsp;world&nbsp;with&nbsp;level&nbsp;data&nbsp;and&nbsp;map&nbsp;image.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;world_data&nbsp;(dict):&nbsp;Data&nbsp;for&nbsp;the&nbsp;current&nbsp;level,&nbsp;including&nbsp;tile&nbsp;map&nbsp;and&nbsp;waypoints.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;map_image&nbsp;(pygame.Surface):&nbsp;Image&nbsp;of&nbsp;the&nbsp;map&nbsp;background.</span></dd></dl>
+
+<dl><dt><a name="World-draw"><strong>draw</strong></a>(self, surface)</dt><dd><span class="code">Draws&nbsp;the&nbsp;map&nbsp;image&nbsp;onto&nbsp;the&nbsp;given&nbsp;surface.<br>
+&nbsp;<br>
+Args:<br>
+surface&nbsp;(pygame.Surface):&nbsp;The&nbsp;surface&nbsp;where&nbsp;the&nbsp;map&nbsp;image&nbsp;will&nbsp;be&nbsp;drawn.</span></dd></dl>
+
+<dl><dt><a name="World-is_wave_completed"><strong>is_wave_completed</strong></a>(self)</dt><dd><span class="code">Checks&nbsp;if&nbsp;the&nbsp;wave&nbsp;is&nbsp;completed.<br>
+&nbsp;<br>
+Returns:<br>
+bool:&nbsp;True&nbsp;if&nbsp;the&nbsp;wave&nbsp;is&nbsp;completed,&nbsp;False&nbsp;otherwise.</span></dd></dl>
+
+<dl><dt><a name="World-process_data"><strong>process_data</strong></a>(self)</dt><dd><span class="code">Processes&nbsp;the&nbsp;level&nbsp;data&nbsp;to&nbsp;extract&nbsp;relevant&nbsp;information,&nbsp;such&nbsp;as&nbsp;the&nbsp;tile&nbsp;map&nbsp;and&nbsp;waypoints.<br>
+&nbsp;<br>
+For&nbsp;the&nbsp;tile&nbsp;map:<br>
+-&nbsp;Extracts&nbsp;data&nbsp;from&nbsp;the&nbsp;"Background"&nbsp;layer.<br>
+&nbsp;<br>
+For&nbsp;the&nbsp;waypoints:<br>
+-&nbsp;Parses&nbsp;the&nbsp;"waypoints"&nbsp;layer,&nbsp;extracting&nbsp;a&nbsp;list&nbsp;of&nbsp;waypoints&nbsp;for&nbsp;enemy&nbsp;movement.</span></dd></dl>
+
+<dl><dt><a name="World-process_enemies"><strong>process_enemies</strong></a>(self)</dt><dd><span class="code">Populates&nbsp;the&nbsp;enemy&nbsp;list&nbsp;for&nbsp;the&nbsp;current&nbsp;wave&nbsp;based&nbsp;on&nbsp;the&nbsp;`WAVE_ENEMY_DATA`.<br>
+&nbsp;<br>
+Function&nbsp;appends&nbsp;each&nbsp;enemy&nbsp;type&nbsp;to&nbsp;the&nbsp;`self.<strong>enemy_list</strong>`&nbsp;based&nbsp;on&nbsp;the&nbsp;spawn&nbsp;count&nbsp;from&nbsp;configuration&nbsp;file<br>
+Then&nbsp;it&nbsp;randomizes&nbsp;the&nbsp;`self.<strong>enemy_list</strong>`&nbsp;to&nbsp;shuffle&nbsp;the&nbsp;order&nbsp;of&nbsp;enemy&nbsp;spawning.</span></dd></dl>
+
+<dl><dt><a name="World-process_waypoints"><strong>process_waypoints</strong></a>(self, data)</dt><dd><span class="code">Iterate&nbsp;through&nbsp;waypoints&nbsp;to&nbsp;extract&nbsp;individual&nbsp;sets&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;coordinates.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;(list):&nbsp;List&nbsp;of&nbsp;dictionaries&nbsp;containing&nbsp;waypoint&nbsp;coordinates.</span></dd></dl>
+
+<dl><dt><a name="World-reset_values"><strong>reset_values</strong></a>(self)</dt><dd><span class="code">Resets&nbsp;values&nbsp;to&nbsp;prepare&nbsp;for&nbsp;a&nbsp;new&nbsp;wave.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>WAVE_ENEMY_DATA</strong> = [{'elite': 0, 'medium': 0, 'strong': 0, 'weak': 8}, {'elite': 0, 'medium': 0, 'strong': 0, 'weak': 15}, {'elite': 0, 'medium': 0, 'strong': 0, 'weak': 30}, {'elite': 0, 'medium': 5, 'strong': 0, 'weak': 20}, {'elite': 0, 'medium': 15, 'strong': 0, 'weak': 30}, {'elite': 0, 'medium': 20, 'strong': 0, 'weak': 5}, {'elite': 0, 'medium': 15, 'strong': 4, 'weak': 15}, {'elite': 0, 'medium': 25, 'strong': 5, 'weak': 20}, {'elite': 0, 'medium': 20, 'strong': 15, 'weak': 10}, {'elite': 0, 'medium': 10, 'strong': 5, 'weak': 15}, {'elite': 0, 'medium': 100, 'strong': 0, 'weak': 0}, {'elite': 2, 'medium': 10, 'strong': 12, 'weak': 5}, {'elite': 5, 'medium': 15, 'strong': 10, 'weak': 0}, {'elite': 10, 'medium': 0, 'strong': 25, 'weak': 20}, {'elite': 15, 'medium': 15, 'strong': 15, 'weak': 15}, {'elite': 25, 'medium': 25, 'strong': 25, 'weak': 25}]</td></tr></table>
+</body></html>

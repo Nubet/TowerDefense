@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module main</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">main</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Clenovo%5Cpycharmprojects%5Creformated%2030.12%5Cmain.py">c:\users\lenovo\pycharmprojects\reformated 30.12\main.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="const.html">const</a><br>
+</td><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="main.html#Game">Game</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Game">class <strong>Game</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Represents&nbsp;the&nbsp;main&nbsp;Tower&nbsp;Defense&nbsp;game.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ROWS&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;rows&nbsp;in&nbsp;the&nbsp;tile&nbsp;map.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;COLS&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;columns&nbsp;in&nbsp;the&nbsp;tile&nbsp;map.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TILE_SIZE&nbsp;(int):&nbsp;Size&nbsp;of&nbsp;each&nbsp;tile&nbsp;in&nbsp;pixels.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCREEN_WIDTH&nbsp;(int):&nbsp;Width&nbsp;of&nbsp;the&nbsp;game&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCREEN_HEIGHT&nbsp;(int):&nbsp;Height&nbsp;of&nbsp;the&nbsp;game&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SIDE_PANEL&nbsp;(int):&nbsp;Width&nbsp;of&nbsp;the&nbsp;side&nbsp;panel.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FPS&nbsp;(int):&nbsp;Frames&nbsp;per&nbsp;second.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;state&nbsp;(str):&nbsp;Current&nbsp;state&nbsp;of&nbsp;the&nbsp;game&nbsp;(menu,&nbsp;game,&nbsp;game_over).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selected_map&nbsp;(int):&nbsp;Currently&nbsp;selected&nbsp;map.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;difficulties&nbsp;(list):&nbsp;List&nbsp;of&nbsp;difficulty&nbsp;levels.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current_difficulty_index&nbsp;(int):&nbsp;Index&nbsp;of&nbsp;the&nbsp;currently&nbsp;selected&nbsp;difficulty.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selected_difficulty&nbsp;(str):&nbsp;Name&nbsp;of&nbsp;the&nbsp;currently&nbsp;selected&nbsp;difficulty.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MAX_LEVELS&nbsp;(int):&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;levels.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wave_started&nbsp;(bool):&nbsp;Whether&nbsp;the&nbsp;wave&nbsp;has&nbsp;started.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;last_enemy_spawn&nbsp;(int):&nbsp;Timestamp&nbsp;of&nbsp;the&nbsp;last&nbsp;enemy&nbsp;spawn.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;placing_turrets&nbsp;(bool):&nbsp;Whether&nbsp;the&nbsp;player&nbsp;is&nbsp;placing&nbsp;turrets.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selected_turret&nbsp;(Turret):&nbsp;Currently&nbsp;selected&nbsp;turret.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;turret_buy_costs&nbsp;(dict):&nbsp;Cost&nbsp;of&nbsp;buying&nbsp;turrets&nbsp;by&nbsp;type.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;occupied_tiles&nbsp;(dict):&nbsp;Dictionary&nbsp;of&nbsp;all&nbsp;occupied&nbsp;tiles.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;world&nbsp;(World):&nbsp;Instance&nbsp;of&nbsp;the&nbsp;game&nbsp;world.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;display_surface&nbsp;(pygame.Surface):&nbsp;Main&nbsp;display&nbsp;surface&nbsp;for&nbsp;the&nbsp;game.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen&nbsp;(pygame.Surface):&nbsp;Internal&nbsp;game&nbsp;screen&nbsp;surface.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;enemy_group&nbsp;(pygame.sprite.Group):&nbsp;Group&nbsp;of&nbsp;enemy&nbsp;sprites.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;turret_group&nbsp;(pygame.sprite.Group):&nbsp;Group&nbsp;of&nbsp;turret&nbsp;sprites.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;turret_spritesheets&nbsp;(list):&nbsp;Sprite&nbsp;sheets&nbsp;for&nbsp;standard&nbsp;turrets.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;camo_turret_spritesheets&nbsp;(list):&nbsp;Sprite&nbsp;sheets&nbsp;for&nbsp;camo&nbsp;turrets.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;purple_turret_spritesheets&nbsp;(list):&nbsp;Sprite&nbsp;sheets&nbsp;for&nbsp;purple&nbsp;turrets.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-__init__">__init__</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes&nbsp;the&nbsp;game,&nbsp;assets,&nbsp;and&nbsp;states.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-load_menu_images">load_menu_images</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loads&nbsp;and&nbsp;prepares&nbsp;map&nbsp;images&nbsp;for&nbsp;the&nbsp;menu.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-load_images">load_images</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loads&nbsp;all&nbsp;necessary&nbsp;game&nbsp;assets,&nbsp;including&nbsp;turrets&nbsp;and&nbsp;enemies.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-load_fonts">load_fonts</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loads&nbsp;fonts&nbsp;for&nbsp;displaying&nbsp;text&nbsp;on&nbsp;the&nbsp;screen.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-load_level_data">load_level_data</a>(map_number):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loads&nbsp;the&nbsp;JSON&nbsp;data&nbsp;for&nbsp;the&nbsp;selected&nbsp;map.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-create_buttons">create_buttons</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates&nbsp;all&nbsp;necessary&nbsp;game&nbsp;buttons.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-draw_text">draw_text</a>(text,&nbsp;font,&nbsp;text_col,&nbsp;x,&nbsp;y):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Draws&nbsp;text&nbsp;on&nbsp;the&nbsp;screen.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-create_turret">create_turret</a>(mapped_mouse_pos):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates&nbsp;a&nbsp;turret&nbsp;at&nbsp;the&nbsp;specified&nbsp;position.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-select_turret">select_turret</a>(mapped_mouse_pos):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selects&nbsp;a&nbsp;turret&nbsp;at&nbsp;the&nbsp;specified&nbsp;position.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-reset_occupied_tiles">reset_occupied_tiles</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears&nbsp;all&nbsp;occupied&nbsp;tiles.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-restart_level">restart_level</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Restarts&nbsp;the&nbsp;game&nbsp;level.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-handle_events">handle_events</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handles&nbsp;all&nbsp;user&nbsp;inputs&nbsp;and&nbsp;events.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-update">update</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Updates&nbsp;the&nbsp;game&nbsp;logic.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-skip_wave">skip_wave</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skips&nbsp;the&nbsp;current&nbsp;wave&nbsp;and&nbsp;penalizes&nbsp;the&nbsp;player's&nbsp;health.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-draw_menu">draw_menu</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Draws&nbsp;the&nbsp;map&nbsp;selection&nbsp;menu.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-draw_game_over">draw_game_over</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Draws&nbsp;the&nbsp;game&nbsp;over&nbsp;screen.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-draw_game">draw_game</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Draws&nbsp;all&nbsp;elements&nbsp;of&nbsp;the&nbsp;game.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-draw">draw</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Draws&nbsp;the&nbsp;appropriate&nbsp;screen&nbsp;based&nbsp;on&nbsp;the&nbsp;current&nbsp;game&nbsp;state.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-run">run</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Runs&nbsp;the&nbsp;main&nbsp;game&nbsp;loop.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Game-map_mouse_cursor">map_mouse_cursor</a>(pos):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maps&nbsp;the&nbsp;mouse&nbsp;position&nbsp;from&nbsp;the&nbsp;display&nbsp;surface&nbsp;to&nbsp;internal&nbsp;screen&nbsp;coordinates.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initializes&nbsp;the&nbsp;game,&nbsp;assets,&nbsp;and&nbsp;states.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Sets&nbsp;up&nbsp;the&nbsp;Pygame&nbsp;environment.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Loads&nbsp;assets,&nbsp;fonts,&nbsp;and&nbsp;buttons.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Initializes&nbsp;game&nbsp;variables,&nbsp;including&nbsp;tile&nbsp;maps,&nbsp;states,&nbsp;and&nbsp;groups.</span></dd></dl>
+
+<dl><dt><a name="Game-create_buttons"><strong>create_buttons</strong></a>(self)</dt><dd><span class="code">Create&nbsp;all&nbsp;necessary&nbsp;buttons.</span></dd></dl>
+
+<dl><dt><a name="Game-create_turret"><strong>create_turret</strong></a>(self, mapped_mouse_pos)</dt><dd><span class="code">Creates&nbsp;a&nbsp;turret&nbsp;at&nbsp;the&nbsp;given&nbsp;position.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mapped_mouse_pos&nbsp;(tuple):&nbsp;The&nbsp;mapped&nbsp;position&nbsp;of&nbsp;the&nbsp;mouse&nbsp;click.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;the&nbsp;turret&nbsp;was&nbsp;successfully&nbsp;placed,&nbsp;False&nbsp;otherwise.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Checks&nbsp;if&nbsp;the&nbsp;tile&nbsp;is&nbsp;valid&nbsp;and&nbsp;unoccupied.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Places&nbsp;a&nbsp;turret&nbsp;and&nbsp;deducts&nbsp;the&nbsp;cost&nbsp;from&nbsp;the&nbsp;player's&nbsp;money.</span></dd></dl>
+
+<dl><dt><a name="Game-draw"><strong>draw</strong></a>(self)</dt><dd><span class="code">Draw&nbsp;the&nbsp;appropriate&nbsp;screen&nbsp;based&nbsp;on&nbsp;the&nbsp;current&nbsp;state.</span></dd></dl>
+
+<dl><dt><a name="Game-draw_game"><strong>draw_game</strong></a>(self)</dt><dd><span class="code">Draw&nbsp;all&nbsp;game&nbsp;elements.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Renders&nbsp;the&nbsp;game&nbsp;world,&nbsp;turrets,&nbsp;enemies,&nbsp;and&nbsp;side&nbsp;panel&nbsp;information.</span></dd></dl>
+
+<dl><dt><a name="Game-draw_game_over"><strong>draw_game_over</strong></a>(self)</dt><dd><span class="code">Draw&nbsp;the&nbsp;game&nbsp;over&nbsp;screen.</span></dd></dl>
+
+<dl><dt><a name="Game-draw_menu"><strong>draw_menu</strong></a>(self)</dt><dd><span class="code">Draw&nbsp;the&nbsp;map&nbsp;selection&nbsp;menu.</span></dd></dl>
+
+<dl><dt><a name="Game-draw_text"><strong>draw_text</strong></a>(self, text, font, text_col, x, y)</dt><dd><span class="code">Draws&nbsp;text&nbsp;on&nbsp;the&nbsp;screen.</span></dd></dl>
+
+<dl><dt><a name="Game-handle_events"><strong>handle_events</strong></a>(self)</dt><dd><span class="code">Handle&nbsp;all&nbsp;events.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;False&nbsp;if&nbsp;the&nbsp;game&nbsp;should&nbsp;exit,&nbsp;True&nbsp;otherwise.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Processes&nbsp;user&nbsp;inputs&nbsp;for&nbsp;turret&nbsp;placement,&nbsp;map&nbsp;selection,&nbsp;and&nbsp;button&nbsp;clicks.</span></dd></dl>
+
+<dl><dt><a name="Game-load_fonts"><strong>load_fonts</strong></a>(self)</dt><dd><span class="code">Loads&nbsp;fonts&nbsp;for&nbsp;displaying&nbsp;text&nbsp;on&nbsp;the&nbsp;screen.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Sets&nbsp;up&nbsp;small,&nbsp;medium,&nbsp;and&nbsp;large&nbsp;font&nbsp;styles.</span></dd></dl>
+
+<dl><dt><a name="Game-load_images"><strong>load_images</strong></a>(self)</dt><dd><span class="code">Loads&nbsp;all&nbsp;necessary&nbsp;game&nbsp;assets.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Loads&nbsp;images&nbsp;for&nbsp;enemies,&nbsp;turrets,&nbsp;and&nbsp;buttons.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Creates&nbsp;sprite&nbsp;sheets&nbsp;for&nbsp;turrets&nbsp;at&nbsp;different&nbsp;levels.</span></dd></dl>
+
+<dl><dt><a name="Game-load_level_data"><strong>load_level_data</strong></a>(self, map_number)</dt><dd><span class="code">Loads&nbsp;the&nbsp;JSON&nbsp;data&nbsp;for&nbsp;the&nbsp;selected&nbsp;map.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;map_number&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;the&nbsp;selected&nbsp;map.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Loads&nbsp;the&nbsp;.tmj&nbsp;file&nbsp;containing&nbsp;map&nbsp;data&nbsp;(in&nbsp;json&nbsp;format)&nbsp;and&nbsp;verifies&nbsp;its&nbsp;dimensions.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Prepares&nbsp;the&nbsp;map&nbsp;image&nbsp;for&nbsp;rendering.</span></dd></dl>
+
+<dl><dt><a name="Game-load_menu_images"><strong>load_menu_images</strong></a>(self)</dt><dd><span class="code">Loads&nbsp;and&nbsp;prepares&nbsp;map&nbsp;images&nbsp;for&nbsp;the&nbsp;menu.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Loads&nbsp;images&nbsp;for&nbsp;each&nbsp;map&nbsp;and&nbsp;creates&nbsp;bordered&nbsp;versions.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Calculates&nbsp;their&nbsp;positions&nbsp;for&nbsp;rendering&nbsp;in&nbsp;the&nbsp;menu.</span></dd></dl>
+
+<dl><dt><a name="Game-map_mouse_cursor"><strong>map_mouse_cursor</strong></a>(self, pos)</dt><dd><span class="code">Map&nbsp;the&nbsp;mouse&nbsp;position&nbsp;from&nbsp;display_surface&nbsp;to&nbsp;internal&nbsp;screen&nbsp;coordinates.<br>
+&nbsp;<br>
+&nbsp;Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pos&nbsp;(tuple):&nbsp;The&nbsp;raw&nbsp;mouse&nbsp;position.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tuple:&nbsp;The&nbsp;mapped&nbsp;mouse&nbsp;position&nbsp;on&nbsp;the&nbsp;internal&nbsp;screen.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;-&nbsp;Determines&nbsp;the&nbsp;scaling&nbsp;factor&nbsp;for&nbsp;both&nbsp;x&nbsp;and&nbsp;y&nbsp;directions&nbsp;based&nbsp;on&nbsp;the&nbsp;ratio&nbsp;of<br>
+&nbsp;&nbsp;the&nbsp;internal&nbsp;game&nbsp;screen's&nbsp;dimensions&nbsp;to&nbsp;the&nbsp;display&nbsp;surface's&nbsp;dimensions.<br>
+&nbsp;-&nbsp;Multiplies&nbsp;the&nbsp;raw&nbsp;mouse&nbsp;coordinates&nbsp;by&nbsp;the&nbsp;scaling&nbsp;factors&nbsp;to&nbsp;map&nbsp;them&nbsp;to<br>
+&nbsp;&nbsp;internal&nbsp;screen&nbsp;coordinates.</span></dd></dl>
+
+<dl><dt><a name="Game-reset_occupied_tiles"><strong>reset_occupied_tiles</strong></a>(self)</dt><dd><span class="code">Clear&nbsp;all&nbsp;occupied&nbsp;tiles.</span></dd></dl>
+
+<dl><dt><a name="Game-restart_level"><strong>restart_level</strong></a>(self)</dt><dd><span class="code">Restart&nbsp;game&nbsp;variables.</span></dd></dl>
+
+<dl><dt><a name="Game-run"><strong>run</strong></a>(self)</dt><dd><span class="code">Runs&nbsp;the&nbsp;main&nbsp;game&nbsp;loop.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Handles&nbsp;events,&nbsp;updates&nbsp;game&nbsp;logic,&nbsp;and&nbsp;renders&nbsp;the&nbsp;screen.</span></dd></dl>
+
+<dl><dt><a name="Game-select_turret"><strong>select_turret</strong></a>(self, mapped_mouse_pos)</dt><dd><span class="code">Selects&nbsp;a&nbsp;turret&nbsp;at&nbsp;the&nbsp;given&nbsp;mouse&nbsp;position.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mapped_mouse_pos&nbsp;(tuple):&nbsp;The&nbsp;mapped&nbsp;position&nbsp;of&nbsp;the&nbsp;mouse&nbsp;click.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Turret&nbsp;or&nbsp;None:&nbsp;The&nbsp;selected&nbsp;turret&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;turret&nbsp;is&nbsp;found.</span></dd></dl>
+
+<dl><dt><a name="Game-skip_wave"><strong>skip_wave</strong></a>(self)</dt><dd><span class="code">Skip&nbsp;the&nbsp;current&nbsp;wave&nbsp;by&nbsp;killing&nbsp;all&nbsp;enemy&nbsp;sprites&nbsp;on&nbsp;screen&nbsp;ending&nbsp;wave&nbsp;immediately<br>
+&nbsp;<br>
+&nbsp;Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Removes&nbsp;all&nbsp;enemies&nbsp;from&nbsp;the&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Deducts&nbsp;a&nbsp;health&nbsp;penalty&nbsp;based&nbsp;on&nbsp;enemy&nbsp;damage..</span></dd></dl>
+
+<dl><dt><a name="Game-update"><strong>update</strong></a>(self)</dt><dd><span class="code">Update&nbsp;game&nbsp;logic.<br>
+&nbsp;<br>
+Behavior:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Checks&nbsp;for&nbsp;win/loss&nbsp;conditions.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Updates&nbsp;enemy&nbsp;and&nbsp;turret&nbsp;groups.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>TURRET_DATA</strong> = {'camo': [{'animation_steps': 8, 'cooldown': 1600, 'damage': 5, 'range': 110}, {'animation_steps': 8, 'cooldown': 1300, 'damage': 5, 'range': 130}, {'animation_steps': 8, 'cooldown': 1100, 'damage': 5, 'range': 140}, {'animation_steps': 8, 'cooldown': 1000, 'damage': 5, 'range': 160}], 'purple': [{'animation_steps': 11, 'cooldown': 1700, 'damage': 5, 'range': 120, 'slow_amount': 0.3, 'slow_duration': 500}, {'animation_steps': 11, 'cooldown': 1600, 'damage': 7, 'range': 140, 'slow_amount': 0.4, 'slow_duration': 1000}, {'animation_steps': 11, 'cooldown': 1500, 'damage': 8, 'range': 160, 'slow_amount': 0.5, 'slow_duration': 1500}, {'animation_steps': 11, 'cooldown': 1400, 'damage': 10, 'range': 180, 'slow_amount': 0.5, 'slow_duration': 2000}], 'standard': [{'animation_steps': 8, 'cooldown': 1500, 'damage': 5, 'range': 100}, {'animation_steps': 8, 'cooldown': 1200, 'damage': 5, 'range': 120}, {'animation_steps': 8, 'cooldown': 1000, 'damage': 5, 'range': 130}, {'animation_steps': 8, 'cooldown': 900, 'damage': 5, 'range': 150}]}<br>
+<strong>WAVE_ENEMY_DATA</strong> = [{'elite': 0, 'medium': 0, 'strong': 0, 'weak': 8}, {'elite': 0, 'medium': 0, 'strong': 0, 'weak': 15}, {'elite': 0, 'medium': 0, 'strong': 0, 'weak': 30}, {'elite': 0, 'medium': 5, 'strong': 0, 'weak': 20}, {'elite': 0, 'medium': 15, 'strong': 0, 'weak': 30}, {'elite': 0, 'medium': 20, 'strong': 0, 'weak': 5}, {'elite': 0, 'medium': 15, 'strong': 4, 'weak': 15}, {'elite': 0, 'medium': 25, 'strong': 5, 'weak': 20}, {'elite': 0, 'medium': 20, 'strong': 15, 'weak': 10}, {'elite': 0, 'medium': 10, 'strong': 5, 'weak': 15}, {'elite': 0, 'medium': 100, 'strong': 0, 'weak': 0}, {'elite': 2, 'medium': 10, 'strong': 12, 'weak': 5}, {'elite': 5, 'medium': 15, 'strong': 10, 'weak': 0}, {'elite': 10, 'medium': 0, 'strong': 25, 'weak': 20}, {'elite': 15, 'medium': 15, 'strong': 15, 'weak': 15}, {'elite': 25, 'medium': 25, 'strong': 25, 'weak': 25}]</td></tr></table>
+</body></html>
