@@ -1,0 +1,59 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map1.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "C:/Users/Norbert/PycharmProjects/FinalProject/levels/NEW/map1.tmj": {
+            "scale": 1.246875,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 480.0000000000001,
+                "y": 479.5989974937344
+            }
+        },
+        "C:/Users/Norbert/PycharmProjects/FinalProject/levels/tileset1.tsx": {
+            "scaleInDock": 1
+        },
+        "map1.tmj": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 0.9658333333333332,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 960.3106125970664,
+                "y": 240.20707506471098
+            }
+        },
+        "map1.tmx": {
+            "scale": 0.9658333333333332,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 479.89646246764454,
+                "y": 480.41415012942196
+            }
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Norbert/PycharmProjects/FinalProject/levels/NEW/MAP1",
+    "last.externalTilesetPath": "C:/Users/Norbert/PycharmProjects/FinalProject/levels/MAP1",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 48,
+    "map.tileWidth": 48,
+    "map.width": 20,
+    "openFiles": [
+        "map1.tmj",
+        "map1.tmx"
+    ],
+    "project": "MAP1-project.tiled-project",
+    "recentFiles": [
+        "map1.tmj",
+        "map1.tmx"
+    ]
+}

@@ -1,0 +1,4 @@
+Nie usuwać plików tileset1.png i tileset.tsx ani nie zmieniać ich pozycji w folderze
+
+Do not delete or modify location of tileset1.png i tileset.tsx
+
